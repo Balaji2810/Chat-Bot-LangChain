@@ -62,10 +62,10 @@ MyOpenAI = OpenAI(temperature=0.6)
 memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 # qa = ChatVectorDBChain.from_llm(MyOpenAI,db)
 
-chatgpt_chain = LLMChain(
-    llm=OpenAI(temperature=0.5),
-    prompt=_template
-)
+# chatgpt_chain = LLMChain(
+#     llm=OpenAI(temperature=0.5),
+#     prompt=_template
+# )
 
 qa = ConversationalRetrievalChain.from_llm(OpenAI(temperature=0.5), db.as_retriever(), memory=memory, verbose=True, combine_docs_chain_kwargs={'prompt': _template})
 
